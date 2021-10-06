@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011assignment1.Controllers.TableViewController">
+   <children>
+      <BorderPane layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TableView fx:id="NutrientsTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="100.0" text="Name" />
+                  <TableColumn fx:id="proteinColumn" prefWidth="100.0" text="Protein" />
+                  <TableColumn fx:id="carbsColumn" prefWidth="100.0" text="Carbs" />
+                  <TableColumn fx:id="fatColumn" prefWidth="100.0" text="Fat" />
+                  <TableColumn fx:id="ashColumn" prefWidth="100.0" text="Ash" />
+                  <TableColumn fx:id="energyColumn" prefWidth="75.0" text="Energy" />
+              </columns>
+            </TableView>
+         </center>
+         <top>
+            <Label text="All Nutrients" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+            <Pane prefHeight="69.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="LoadButton" layoutX="423.0" layoutY="15.0" mnemonicParsing="false" text="Load All Products" />
+                  <Button fx:id="GraphButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewGraphButton" text="Graph View" />
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
