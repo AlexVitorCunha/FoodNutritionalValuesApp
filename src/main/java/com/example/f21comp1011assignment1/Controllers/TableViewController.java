@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -50,22 +51,15 @@ public class TableViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Product,String>("name"));
-        proteinColumn.setCellValueFactory(new PropertyValueFactory<Product,Float>("protein"));
-        fatColumn.setCellValueFactory(new PropertyValueFactory<Product, Float>("fat"));
-        energyColumn.setCellValueFactory(new PropertyValueFactory<Product, Float>("energy"));
-        carbsColumn.setCellValueFactory(new PropertyValueFactory<Product,Float>("carbs"));
-        ashColumn.setCellValueFactory(new PropertyValueFactory<Product,Float>("ash"));
-
-        try{
-            final ObservableList<Product> products = DBUtility.loadDataFromDB();
-            NutrientsTable.getItems().addAll(products);
+        /*nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        proteinColumn.setCellValueFactory(new PropertyValueFactory<>("protein"));
+        fatColumn.setCellValueFactory(new PropertyValueFactory<>("fat"));
+        energyColumn.setCellValueFactory(new PropertyValueFactory<>("energy"));
+        carbsColumn.setCellValueFactory(new PropertyValueFactory<>("carbs"));
+        ashColumn.setCellValueFactory(new PropertyValueFactory<>("ash"));*/
 
 
-
-        }catch (SQLException e){
-            System.err.print(e);
-        }
+            ArrayList<Product> products = DBUtility.loadDataFromDB();
     }
 
     @FXML

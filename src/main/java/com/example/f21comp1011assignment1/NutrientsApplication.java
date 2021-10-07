@@ -11,7 +11,7 @@ import java.io.IOException;
 public class NutrientsApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(NutrientsApplication.class.getResource("table-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(NutrientsApplication.class.getResource("graph-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Nutrients");
         Image icon = new Image("/icon.png");

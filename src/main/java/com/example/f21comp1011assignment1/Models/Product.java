@@ -1,68 +1,64 @@
 package com.example.f21comp1011assignment1.Models;
 
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 public class Product {
-    private final SimpleStringProperty name;
-    private final SimpleFloatProperty protein, carbs, fat, ash, energy;
+    private String name;
+    private float protein, carbs, fat, ash, energy;
 
     public Product(String name, float protein, float carbs, float fat, float ash, float energy) {
-        this.name = new SimpleStringProperty(name);
-        this.protein =  new SimpleFloatProperty(protein);
-        this.carbs =  new SimpleFloatProperty(carbs);
-        this.fat =  new SimpleFloatProperty(fat);
-        this.ash =  new SimpleFloatProperty(ash);
-        this.energy =  new SimpleFloatProperty(energy);
+        setName(name);
+        setProtein(protein);
+        setCarbs(carbs);
+        setFat(fat);
+        setAsh(ash);
+        setEnergy(energy);
     }
 
     public String getName() {
-        return name.get();
+        return name;
     }
 
     public void setName(String name) {
-        this.name.set(name);
+        this.name = name;
     }
 
-
     public float getProtein() {
-        return protein.get();
+        return protein;
     }
 
     public void setProtein(float protein) {
-        this.protein.set(protein);
+        this.protein = protein;
     }
 
     public float getCarbs() {
-        return carbs.get();
+        return carbs;
     }
 
     public void setCarbs(float carbs) {
-        this.carbs.set(carbs);
+        this.carbs = carbs;
     }
 
     public float getFat() {
-        return fat.get();
+        return fat;
     }
 
     public void setFat(float fat) {
-        this.fat.set(fat);
+        this.fat = fat;
     }
 
     public float getAsh() {
-        return ash.get();
+        return ash;
     }
 
     public void setAsh(float ash) {
-        this.ash.set(ash);
+        this.ash = ash;
     }
 
     public float getEnergy() {
-        return energy.get();
+        return energy;
     }
 
     public void setEnergy(float energy) {
-        this.energy.set(energy);
+        this.energy = energy;
     }
 }

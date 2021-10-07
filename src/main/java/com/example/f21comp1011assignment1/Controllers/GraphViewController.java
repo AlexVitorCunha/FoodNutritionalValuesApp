@@ -1,6 +1,7 @@
 package com.example.f21comp1011assignment1.Controllers;
 
 import com.example.f21comp1011assignment1.SceneChanger;
+import com.example.f21comp1011assignment1.Utilities.DBUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import java.io.IOException;
@@ -34,8 +35,11 @@ public class GraphViewController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<String> nutrients = Arrays.asList("Protein","Carbs","Fat", "Sugar","Ash", "Energy");
+        List<String> nutrients = Arrays.asList("Protein","Carbs","Fat","Ash", "Energy");
         nutrientComboBox.getItems().addAll(nutrients);
+        barChart.getData().addAll(DBUtility.getNutrientInformation("PROT"));
+        foodAxis.setLabel("Food Name");
+        nutrientAxis.setLabel("Amount of Nutrient");
     }
 
     @FXML
@@ -49,6 +53,8 @@ public class GraphViewController implements Initializable{
     @FXML
     private void updateGraph()
     {
-        System.out.println(nutrientComboBox.getValue());
+        barChart.getData().clear();
+        barChart.getData().addAll(DBUtility.getNutrientInformation(nutrientComboBox.getValue()));
+        foodAxis.setLabel(nutrientComboBox.getValue());
     }
 }
