@@ -1,8 +1,8 @@
 package com.example.f21comp1011assignment1.Controllers;
 
 import com.example.f21comp1011assignment1.Models.Product;
-import com.example.f21comp1011assignment1.Utilities.DBUtility;
 import com.example.f21comp1011assignment1.SceneChanger;
+import com.example.f21comp1011assignment1.Utilities.DBUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -57,13 +56,7 @@ public class TableViewController implements Initializable {
         carbsColumn.setCellValueFactory(new PropertyValueFactory<>("carbs"));
         ashColumn.setCellValueFactory(new PropertyValueFactory<>("ash"));
 
-
-        ArrayList<Product> products = DBUtility.loadDataFromDB();
-        for(int i=0; i< products.size();i++)
-        {
-            System.out.printf("%s",products.get(i).getName());
-        }
-        //NutrientsTable.getItems().addAll(products);
+        NutrientsTable.getItems().addAll(DBUtility.loadDataFromDB());
     }
 
     @FXML

@@ -17,8 +17,7 @@ public class DBUtility {
         ArrayList<Product> products = new ArrayList<>();
 
         String sql = "SELECT * FROM nutrients" +
-                " ORDER BY ID" +
-                " LIMIT 30;";
+                " ORDER BY ID;";
         int id = 0;
         Product newProduct = new Product();
         try(
@@ -28,7 +27,6 @@ public class DBUtility {
                 ){
             while(resultSet.next())
             {
-
                 if(id != resultSet.getInt("ID")){
                     if(id != 0) {products.add(newProduct);}
                     newProduct.setName(resultSet.getString("Product"));
