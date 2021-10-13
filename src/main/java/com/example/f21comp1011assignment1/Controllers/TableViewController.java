@@ -3,7 +3,6 @@ package com.example.f21comp1011assignment1.Controllers;
 import com.example.f21comp1011assignment1.Models.Product;
 import com.example.f21comp1011assignment1.Utilities.DBUtility;
 import com.example.f21comp1011assignment1.SceneChanger;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,32 +33,37 @@ public class TableViewController implements Initializable {
     private TableColumn<Product, String> nameColumn;
 
     @FXML
-    private TableColumn<Product, Float> proteinColumn;
+    private TableColumn<Product, Double> proteinColumn;
 
     @FXML
-    private TableColumn<Product, Float> energyColumn;
+    private TableColumn<Product, Double> energyColumn;
 
     @FXML
-    private TableColumn<Product, Float> fatColumn;
+    private TableColumn<Product, Double> fatColumn;
 
     @FXML
-    private TableColumn<Product, Float> carbsColumn;
+    private TableColumn<Product, Double> carbsColumn;
 
     @FXML
-    private TableColumn<Product, Float> ashColumn;
+    private TableColumn<Product, Double> ashColumn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        /*nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         proteinColumn.setCellValueFactory(new PropertyValueFactory<>("protein"));
         fatColumn.setCellValueFactory(new PropertyValueFactory<>("fat"));
         energyColumn.setCellValueFactory(new PropertyValueFactory<>("energy"));
         carbsColumn.setCellValueFactory(new PropertyValueFactory<>("carbs"));
-        ashColumn.setCellValueFactory(new PropertyValueFactory<>("ash"));*/
+        ashColumn.setCellValueFactory(new PropertyValueFactory<>("ash"));
 
 
-            ArrayList<Product> products = DBUtility.loadDataFromDB();
+        ArrayList<Product> products = DBUtility.loadDataFromDB();
+        for(int i=0; i< products.size();i++)
+        {
+            System.out.printf("%s",products.get(i).getName());
+        }
+        //NutrientsTable.getItems().addAll(products);
     }
 
     @FXML

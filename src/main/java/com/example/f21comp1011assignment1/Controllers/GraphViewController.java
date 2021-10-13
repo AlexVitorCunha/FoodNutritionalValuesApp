@@ -19,7 +19,7 @@ import javafx.scene.control.ComboBox;
 public class GraphViewController implements Initializable{
 
     @FXML
-    private BarChart<String, Float> barChart;
+    private BarChart<String, Double> barChart;
 
     @FXML
     private ComboBox<String> nutrientComboBox;

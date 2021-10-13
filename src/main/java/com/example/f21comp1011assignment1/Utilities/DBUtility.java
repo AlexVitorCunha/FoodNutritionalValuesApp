@@ -11,41 +11,58 @@ public class DBUtility {
     private static String pw = "student";
     private static String connectURL = "jdbc:mysql://localhost:3306/javaProjects";
 
-    public static ArrayList loadDataFromDB()
+
+    public static ArrayList<Product> loadDataFromDB()
     {
         ArrayList<Product> products = new ArrayList<>();
 
-        String sql = "SELECT * FROM table_name;";
-
+        String sql = "SELECT * FROM nutrients" +
+                " ORDER BY ID" +
+                " LIMIT 30;";
+        int id = 0;
+        Product newProduct = new Product();
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pw);
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 ){
-
             while(resultSet.next())
             {
-                Product newProduct = new Product(resultSet.getString("product_name"),
-                                                resultSet.getFloat("protein"),
-                                                resultSet.getFloat("fat"),
-                                                resultSet.getFloat("carbs"),
-                                                resultSet.getFloat("ash"),
-                                                resultSet.getFloat("energy"));
-                newProduct.getName();
-                products.add(newProduct);
+
+                if(id != resultSet.getInt("ID")){
+                    if(id != 0) {products.add(newProduct);}
+                    newProduct.setName(resultSet.getString("Product"));
+                    newProduct.resetData();
+                    id = resultSet.getInt("ID");
+                }
+                switch (resultSet.getString("Nutrient")){
+                    case "PROT":
+                        newProduct.setProtein(resultSet.getDouble("Value"));
+                        break;
+                    case "CARB":
+                        newProduct.setCarbs(resultSet.getDouble("Value"));
+                        break;
+                    case "ASH":
+                        newProduct.setAsh(resultSet.getDouble("Value"));
+                        break;
+                    case "FAT":
+                        newProduct.setFat(resultSet.getDouble("Value"));
+                    default:
+                        newProduct.setEnergy(resultSet.getDouble("Value"));
+                }
             }
 
         }
         catch(Exception e)
         {
-            System.err.print(e.getMessage());
+            e.printStackTrace();
         }
         return products;
     }
 
-    public static XYChart.Series<String, Float> getNutrientInformation(String nutrient){
+    public static XYChart.Series<String, Double> getNutrientInformation(String nutrient){
 
-        XYChart.Series<String, Float> nutrientData = new XYChart.Series<>();
+        XYChart.Series<String, Double> nutrientData = new XYChart.Series<>();
         String where;
         switch(nutrient){
             case "Protein":
@@ -57,18 +74,18 @@ public class DBUtility {
             case "Ash":
                 where = "ASH";
                 break;
+            case "Fat":
+                where = "FAT";
             default:
                 where = "KCAL";
         }
 
-        String sql = "SELECT substring(FN.FoodDescription, 1, 5) AS Product, NN.NutrientName AS Nutrient, NA.NutrientValue AS Value\n" +
-                "FROM food_name FN LEFT OUTER JOIN nutrient_amount NA\n" +
-                "ON FN.FoodID = NA.FoodID\n" +
-                "JOIN nutrients_name NN\n" +
-                "ON NA.NutrientID = NN.NutrientID\n" +
-                "WHERE NN.NutrientSymbol = '" + where +
-                "' AND NA.NutrientValue > 0 " +
-                " ORDER BY FN.FoodID DESC";
+
+        String sql = "SELECT * FROM nutrients" +
+                " WHERE Nutrient = '" + where +
+                "' AND Value > 0 " +
+                " ORDER BY Value DESC" +
+                " LIMIT 20;";
 
         try(
                 Connection conn = DriverManager.getConnection(connectURL,user,pw);
@@ -77,9 +94,11 @@ public class DBUtility {
                 ){
             while (resultSet.next())
             {
-                nutrientData.getData().add(new XYChart.Data<>(resultSet.getString("Product"),resultSet.getFloat("Value")));
+                String product = resultSet.getString("Product");
+                if(product.contains(" "))
+                    product = product.split(" ")[0] + " " + product.split(" ")[1];
+                nutrientData.getData().add(new XYChart.Data<>(product,resultSet.getDouble("Value")));
             }
-
         }catch (Exception e){
             e.printStackTrace();
         }
