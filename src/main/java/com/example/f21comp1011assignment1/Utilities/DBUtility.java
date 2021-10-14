@@ -11,15 +11,19 @@ public class DBUtility {
     private static String pw = "student";
     private static String connectURL = "jdbc:mysql://localhost:3306/javaProjects";
 
-
+    /**
+     *
+     * @return
+     */
     public static ArrayList<Product> loadDataFromDB()
     {
         ArrayList<Product> products = new ArrayList<>();
 
         String sql = "SELECT * FROM nutrients" +
-                " ORDER BY ID;";
+                " ORDER BY Product;";
         int id = 0;
-        Product newProduct = new Product();
+        String name = "";
+        double protein = 0, carbs = 0, fat = 0, ash = 0, energy = 0;
         try(
                 Connection conn = DriverManager.getConnection(connectURL, user, pw);
                 Statement statement = conn.createStatement();
@@ -28,25 +32,27 @@ public class DBUtility {
             while(resultSet.next())
             {
                 if(id != resultSet.getInt("ID")){
-                    if(id != 0) {products.add(newProduct);}
-                    newProduct.setName(resultSet.getString("Product"));
-                    newProduct.resetData();
-                    id = resultSet.getInt("ID");
+                    if(id != 0) {
+                        products.add(new Product(name,protein,carbs, fat, ash, energy));
+                        protein = carbs = fat = ash = energy = 0;
+                    }
+                    name = resultSet.getString("Product");
+                    id = resultSet.getInt("Id");
                 }
                 switch (resultSet.getString("Nutrient")){
                     case "PROT":
-                        newProduct.setProtein(resultSet.getDouble("Value"));
+                        protein = resultSet.getDouble("Value");
                         break;
                     case "CARB":
-                        newProduct.setCarbs(resultSet.getDouble("Value"));
+                        carbs = resultSet.getDouble("Value");
                         break;
                     case "ASH":
-                        newProduct.setAsh(resultSet.getDouble("Value"));
+                        ash = resultSet.getDouble("Value");
                         break;
                     case "FAT":
-                        newProduct.setFat(resultSet.getDouble("Value"));
+                        fat = resultSet.getDouble("Value");
                     default:
-                        newProduct.setEnergy(resultSet.getDouble("Value"));
+                        energy = resultSet.getDouble("Value");
                 }
             }
 
@@ -58,6 +64,10 @@ public class DBUtility {
         return products;
     }
 
+    /**
+     *
+     * @return
+     */
     public static XYChart.Series<String, Double> getNutrientInformation(String nutrient){
 
         XYChart.Series<String, Double> nutrientData = new XYChart.Series<>();

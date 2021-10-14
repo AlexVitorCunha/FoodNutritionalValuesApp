@@ -1,7 +1,7 @@
 package com.example.f21comp1011assignment1.Controllers;
 
 import com.example.f21comp1011assignment1.Models.Product;
-import com.example.f21comp1011assignment1.SceneChanger;
+import com.example.f21comp1011assignment1.Utilities.SceneChanger;
 import com.example.f21comp1011assignment1.Utilities.DBUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -61,8 +60,7 @@ public class TableViewController implements Initializable {
 
     @FXML
     private void viewGraphButton(ActionEvent event) throws IOException {
-        SceneChanger sceneChanger = new SceneChanger();
-        sceneChanger.changeScenes(event,"graph-view.fxml", "text");
+        SceneChanger.changeScenes(event,"graph-view.fxml", "text");
     }
 
 

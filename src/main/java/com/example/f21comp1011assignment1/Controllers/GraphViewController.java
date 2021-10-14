@@ -1,6 +1,6 @@
 package com.example.f21comp1011assignment1.Controllers;
 
-import com.example.f21comp1011assignment1.SceneChanger;
+import com.example.f21comp1011assignment1.Utilities.SceneChanger;
 import com.example.f21comp1011assignment1.Utilities.DBUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -37,16 +37,13 @@ public class GraphViewController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<String> nutrients = Arrays.asList("Protein","Carbs","Fat","Ash", "Energy");
         nutrientComboBox.getItems().addAll(nutrients);
-        barChart.getData().addAll(DBUtility.getNutrientInformation("PROT"));
         foodAxis.setLabel("Food Name");
         nutrientAxis.setLabel("Amount of Nutrient");
     }
 
     @FXML
     private void viewTableButton(ActionEvent event) throws IOException {
-        SceneChanger sceneChanger = new SceneChanger();
-        sceneChanger.changeScenes(event,"table-view.fxml", "Nutrients Graph");
-
+        SceneChanger.changeScenes(event,"table-view.fxml", "Nutrients Graph");
     }
 
     //updates the graph depending on the chosen nutrient
@@ -56,5 +53,6 @@ public class GraphViewController implements Initializable{
         barChart.getData().clear();
         barChart.getData().addAll(DBUtility.getNutrientInformation(nutrientComboBox.getValue()));
         foodAxis.setLabel(nutrientComboBox.getValue());
+        nutrientAxis.setLabel("Amount of Nutrient");
     }
 }
