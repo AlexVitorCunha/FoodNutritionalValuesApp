@@ -41,18 +41,25 @@ public class GraphViewController implements Initializable{
         nutrientAxis.setLabel("Amount of Nutrient");
     }
 
+    // Changes the view to the table view when the button is pressed
     @FXML
     private void viewTableButton(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event,"table-view.fxml", "Nutrients Graph");
     }
 
-    //updates the graph depending on the chosen nutrient
+    //updates the graph depending on the chosen nutrient on the Combobox
     @FXML
     private void updateGraph()
     {
         barChart.getData().clear();
         barChart.getData().addAll(DBUtility.getNutrientInformation(nutrientComboBox.getValue()));
-        foodAxis.setLabel(nutrientComboBox.getValue());
-        nutrientAxis.setLabel("Amount of Nutrient");
+        switch(nutrientComboBox.getValue()){
+            case "Energy":
+                nutrientAxis.setLabel("Amount of Nutrient (kCal)");
+                break;
+            default:
+                nutrientAxis.setLabel("Amount of Nutrient (g)");
+        }
+
     }
 }

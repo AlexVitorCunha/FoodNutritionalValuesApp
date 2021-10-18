@@ -11,7 +11,7 @@
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <center>
-            <BarChart fx:id="barChart" animated="false" BorderPane.alignment="CENTER">
+            <BarChart fx:id="barChart" animated="false" legendVisible="false" BorderPane.alignment="CENTER">
               <xAxis>
                 <CategoryAxis fx:id="foodAxis" side="BOTTOM" />
               </xAxis>
@@ -21,7 +21,7 @@
             </BarChart>
          </center>
          <top>
-            <Label text="Nutrients Comparison" BorderPane.alignment="CENTER" />
+            <Label id="header" text="Nutrients Comparison" BorderPane.alignment="CENTER" />
          </top>
          <bottom>
             <Pane prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">

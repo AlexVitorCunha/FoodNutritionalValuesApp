@@ -1,0 +1,22 @@
+.root{
+    -fx-background-color: #212121;
+    -fx-font-family: "Roboto Light";
+}
+
+#header{
+    -fx-font-size: 35px;
+    -fx-text-fill: #FF9800;
+}
+
+.button{
+    -fx-background-color: #FF9800;
+}
+
+.chart {
+    -fx-background-color: #757575;
+    -fx-background-radius: 10px;
+}
+
+.table-view{
+    -fx-background-radius: 10px;
+}

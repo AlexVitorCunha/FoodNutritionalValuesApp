@@ -12,8 +12,8 @@ public class DBUtility {
     private static String connectURL = "jdbc:mysql://localhost:3306/javaProjects";
 
     /**
-     *
-     * @return
+     * Query the database to get information about the amount of nutrients of each product
+     * @return Product object ArrayList
      */
     public static ArrayList<Product> loadDataFromDB()
     {
@@ -32,8 +32,11 @@ public class DBUtility {
             while(resultSet.next())
             {
                 if(id != resultSet.getInt("ID")){
+                    // when the id of the entry changes it creates the Product object and adds it
+                    // to the list
                     if(id != 0) {
                         products.add(new Product(name,protein,carbs, fat, ash, energy));
+                        //set all nutrients to 0 not to have any missing value
                         protein = carbs = fat = ash = energy = 0;
                     }
                     name = resultSet.getString("Product");
@@ -65,8 +68,8 @@ public class DBUtility {
     }
 
     /**
-     *
-     * @return
+     * Query the database for the amount of nutrients depending on the nutrient type
+     * @return the nutrient data to show on the Barchart view
      */
     public static XYChart.Series<String, Double> getNutrientInformation(String nutrient){
 
