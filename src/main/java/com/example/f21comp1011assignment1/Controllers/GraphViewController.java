@@ -37,6 +37,8 @@ public class GraphViewController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<String> nutrients = Arrays.asList("Protein","Carbs","Fat","Ash", "Energy");
         nutrientComboBox.getItems().addAll(nutrients);
+        nutrientComboBox.getSelectionModel().selectFirst();
+        updateGraph();
         foodAxis.setLabel("Food Name");
         nutrientAxis.setLabel("Amount of Nutrient");
     }
@@ -44,7 +46,7 @@ public class GraphViewController implements Initializable{
     // Changes the view to the table view when the button is pressed
     @FXML
     private void viewTableButton(ActionEvent event) throws IOException {
-        SceneChanger.changeScenes(event,"table-view.fxml", "Nutrients Graph");
+        SceneChanger.changeScenes(event,"table-view.fxml", "Nutrients Table");
     }
 
     //updates the graph depending on the chosen nutrient on the Combobox

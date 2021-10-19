@@ -64,7 +64,7 @@ public class TableViewController implements Initializable {
 
     @FXML
     private void viewGraphButton(ActionEvent event) throws IOException {
-        SceneChanger.changeScenes(event,"graph-view.fxml", "text");
+        SceneChanger.changeScenes(event,"graph-view.fxml", "Nutrients Graph");
     }
 
 

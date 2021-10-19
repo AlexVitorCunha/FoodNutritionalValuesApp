@@ -2,7 +2,6 @@ package com.example.f21comp1011assignment1.Utilities;
 
 import com.example.f21comp1011assignment1.Models.Product;
 import javafx.scene.chart.XYChart;
-
 import java.sql.*;
 import java.util.ArrayList;
 

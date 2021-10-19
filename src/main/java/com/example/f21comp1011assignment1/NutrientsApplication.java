@@ -13,7 +13,7 @@ public class NutrientsApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(NutrientsApplication.class.getResource("graph-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Nutrients");
+        stage.setTitle("Nutrients Graph");
         Image icon = new Image("/icon.png");
         stage.getIcons().add(icon);
         stage.setScene(scene);

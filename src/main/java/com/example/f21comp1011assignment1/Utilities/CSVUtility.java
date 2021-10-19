@@ -3,8 +3,6 @@ package com.example.f21comp1011assignment1.Utilities;
 import java.io.*;
 import java.util.Formatter;
 
-
-
 public class CSVUtility {
     public static void convertCSVToSQL(File fileToRead, String sqlFileName){
 
@@ -31,9 +29,5 @@ public class CSVUtility {
         {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        convertCSVToSQL(new File("C:\\Users\\alexv\\Documents\\NUTRIENTNAME.csv"),"nutrientname.sql");
     }
 }
