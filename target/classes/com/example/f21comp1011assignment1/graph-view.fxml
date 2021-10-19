@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -28,7 +29,10 @@
                <children>
                   <Label id="nutrientLabel" alignment="CENTER" layoutX="14.0" layoutY="-6.0" prefHeight="86.0" prefWidth="167.0" text="Choose nutrient:" />
                   <ComboBox fx:id="nutrientComboBox" layoutX="198.0" layoutY="20.0" onAction="#updateGraph" prefHeight="35.0" prefWidth="150.0" />
-                  <Button layoutX="462.0" layoutY="20.0" mnemonicParsing="false" onAction="#viewTableButton" prefHeight="35.0" prefWidth="124.0" text="Table View" />
+                  <Button layoutX="462.0" layoutY="20.0" mnemonicParsing="false" onAction="#viewTableButton" prefHeight="35.0" prefWidth="124.0" text="Table View">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
                   <Label id="disclaimer" layoutX="26.0" layoutY="1.0" text="*check full product description on table view" textFill="#ff9800" />
                </children>
             </Pane>

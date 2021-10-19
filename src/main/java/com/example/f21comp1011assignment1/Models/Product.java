@@ -23,7 +23,12 @@ public class Product {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if(id > 0){
+            this.id = id;
+        }
+        else{
+            throw new IllegalArgumentException("Id must be a positive number");
+        }
     }
 
     public String getName() {
@@ -35,7 +40,7 @@ public class Product {
             this.name = name;
         }
         else{
-            throw new IllegalArgumentException("Minimum Length required");
+            throw new IllegalArgumentException("Minimum Length required is 4");
         }
     }
 
@@ -44,7 +49,12 @@ public class Product {
     }
 
     public void setProtein(double protein) {
-        this.protein = protein;
+        if(protein >= 0){
+            this.protein = protein;
+        }
+        else{
+            throw new IllegalArgumentException("Protein value can't be a negative number");
+        }
     }
 
     public double getCarbs() {
@@ -52,7 +62,12 @@ public class Product {
     }
 
     public void setCarbs(double carbs) {
-        this.carbs = carbs;
+        if(carbs >= 0){
+            this.carbs = carbs;
+        }
+        else{
+            throw new IllegalArgumentException("Carbs value can't be a negative number");
+        }
     }
 
     public double getFat() {
@@ -60,7 +75,13 @@ public class Product {
     }
 
     public void setFat(double fat) {
-        this.fat = fat;
+        if(fat >= 0){
+            this.fat = fat;
+        }
+        else{
+            throw new IllegalArgumentException("Fat value can't be a negative number");
+        }
+
     }
 
     public double getAsh() {
@@ -68,7 +89,12 @@ public class Product {
     }
 
     public void setAsh(double ash) {
-        this.ash = ash;
+        if(ash >= 0){
+            this.ash = ash;
+        }
+        else{
+            throw new IllegalArgumentException("Ash value can't be a negative number");
+        }
     }
 
     public double getEnergy() {
@@ -76,14 +102,12 @@ public class Product {
     }
 
     public void setEnergy(double energy) {
-        this.energy = energy;
-    }
+        if(energy >= 0){
+            this.energy = energy;
+        }
+        else{
+            throw new IllegalArgumentException("Energy value can't be a negative number");
+        }
 
-
-    public void resetData(){
-        setAsh(0);
-        setEnergy(0);
-        setFat(0);
-        setCarbs(0);
     }
 }

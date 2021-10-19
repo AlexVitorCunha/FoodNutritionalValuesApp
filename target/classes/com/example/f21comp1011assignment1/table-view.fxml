@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -28,7 +29,10 @@
          <bottom>
             <Pane prefHeight="69.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="GraphButton" layoutX="236.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewGraphButton" prefHeight="39.0" prefWidth="129.0" text="Graph View" />
+                  <Button fx:id="GraphButton" layoutX="236.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewGraphButton" prefHeight="39.0" prefWidth="129.0" text="Graph View">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
                </children>
             </Pane>
          </bottom>
