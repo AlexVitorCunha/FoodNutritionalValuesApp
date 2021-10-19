@@ -35,7 +35,7 @@ public class DBUtility {
                     // when the id of the entry changes it creates the Product object and adds it
                     // to the list
                     if(id != 0) {
-                        products.add(new Product(name,protein,carbs, fat, ash, energy));
+                        products.add(new Product(id,name,protein,carbs, fat, ash, energy));
                         //set all nutrients to 0 not to have any missing value
                         protein = carbs = fat = ash = energy = 0;
                     }
@@ -75,6 +75,7 @@ public class DBUtility {
 
         XYChart.Series<String, Double> nutrientData = new XYChart.Series<>();
         String where;
+        //defines the nutrient depending on the combobox
         switch(nutrient){
             case "Protein":
                 where = "PROT";
@@ -90,13 +91,12 @@ public class DBUtility {
             default:
                 where = "KCAL";
         }
-
-
+        //defines the query depending on the nutrient
         String sql = "SELECT * FROM nutrients" +
                 " WHERE Nutrient = '" + where +
                 "' AND Value > 0 " +
                 " ORDER BY Value DESC" +
-                " LIMIT 20;";
+                " LIMIT 10;";
 
         try(
                 Connection conn = DriverManager.getConnection(connectURL,user,pw);
@@ -106,8 +106,10 @@ public class DBUtility {
             while (resultSet.next())
             {
                 String product = resultSet.getString("Product");
+                //cuts the product name into fewer characters and adds productID
                 if(product.contains(" "))
-                    product = product.split(" ")[0] + " " + product.split(" ")[1];
+                    product = "[" + resultSet.getString("ID") + "] " +
+                            product.split(" ")[0].replace(",","");
                 nutrientData.getData().add(new XYChart.Data<>(product,resultSet.getDouble("Value")));
             }
         }catch (Exception e){

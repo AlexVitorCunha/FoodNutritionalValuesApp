@@ -28,6 +28,9 @@ public class TableViewController implements Initializable {
     private TableView<Product> NutrientsTable;
 
     @FXML
+    private TableColumn<Product, Integer> idColumn;
+
+    @FXML
     private TableColumn<Product, String> nameColumn;
 
     @FXML
@@ -48,6 +51,7 @@ public class TableViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         proteinColumn.setCellValueFactory(new PropertyValueFactory<>("protein"));
         fatColumn.setCellValueFactory(new PropertyValueFactory<>("fat"));

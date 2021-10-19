@@ -12,12 +12,13 @@
          <center>
             <TableView id="table" fx:id="NutrientsTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn id="table-view" fx:id="nameColumn" prefWidth="100.0" text="Name" />
-                  <TableColumn fx:id="proteinColumn" prefWidth="100.0" text="Protein" />
-                  <TableColumn fx:id="carbsColumn" prefWidth="100.0" text="Carbs" />
-                  <TableColumn fx:id="fatColumn" prefWidth="100.0" text="Fat" />
-                  <TableColumn fx:id="ashColumn" prefWidth="100.0" text="Ash" />
-                  <TableColumn fx:id="energyColumn" prefWidth="75.0" text="Energy" />
+                  <TableColumn id="table-view" fx:id="idColumn" prefWidth="30.0" text="ID" />
+                <TableColumn id="table-view" fx:id="nameColumn" prefWidth="250.0" text="Name" />
+                  <TableColumn fx:id="proteinColumn" prefWidth="50.0" text="Protein" />
+                  <TableColumn fx:id="carbsColumn" prefWidth="50.0" text="Carbs" />
+                  <TableColumn fx:id="fatColumn" prefWidth="50.0" text="Fat" />
+                  <TableColumn fx:id="ashColumn" prefWidth="50.0" text="Ash" />
+                  <TableColumn fx:id="energyColumn" prefWidth="50.0" text="Energy" />
               </columns>
             </TableView>
          </center>
@@ -27,11 +28,16 @@
          <bottom>
             <Pane prefHeight="69.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="LoadButton" layoutX="423.0" layoutY="15.0" mnemonicParsing="false" text="Load All Products" />
-                  <Button fx:id="GraphButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewGraphButton" text="Graph View" />
+                  <Button fx:id="GraphButton" layoutX="236.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewGraphButton" prefHeight="39.0" prefWidth="129.0" text="Graph View" />
                </children>
             </Pane>
          </bottom>
+         <left>
+            <Pane prefHeight="200.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="200.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

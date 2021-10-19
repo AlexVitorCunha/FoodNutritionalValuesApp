@@ -12,11 +12,91 @@
     -fx-background-color: #FF9800;
 }
 
+.button:hover{
+    -fx-background-color: #a16000;
+}
+
+#nutrientLabel{
+    -fx-font-size: 20px;
+    -fx-text-fill: #FF9800;
+}
+
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-border-color: #FF9800;
+    -fx-border-radius: 10px;
+}
+.combo-box .list-cell{
+    -fx-text-fill: #FF9800;
+}
+
+.combo-box .list-view .list-cell{
+    -fx-background-color: black;
+    -fx-border-color: #FF9800;
+    -fx-border-radius: 2px;
+}
+
+.combo-box:hover {
+    -fx-border-color: #a16000;
+}
+
 .chart {
-    -fx-background-color: #757575;
+    -fx-background-color: rgba(154, 148, 148, 0);
     -fx-background-radius: 10px;
 }
 
-.table-view{
-    -fx-background-radius: 10px;
+.chart-plot-background {
+    -fx-background-color: transparent;
 }
+
+.axis-label {
+    -fx-text-fill: #FF9800;
+    -fx-font-size: 10px;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:hover {
+    -fx-text-background-color: #FF9800;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  #FF9800;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  #FF9800;
+}
+
+
+
+
+
+
+

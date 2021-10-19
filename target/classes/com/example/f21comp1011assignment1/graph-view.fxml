@@ -11,12 +11,12 @@
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <center>
-            <BarChart fx:id="barChart" animated="false" legendVisible="false" BorderPane.alignment="CENTER">
+            <BarChart fx:id="barChart" animated="false" categoryGap="5.0" legendVisible="false" prefHeight="270.0" prefWidth="566.0" BorderPane.alignment="CENTER">
               <xAxis>
-                <CategoryAxis fx:id="foodAxis" side="BOTTOM" />
+                <CategoryAxis fx:id="foodAxis" side="BOTTOM" tickLabelFill="#ff9900" />
               </xAxis>
               <yAxis>
-                <NumberAxis fx:id="nutrientAxis" side="LEFT" />
+                <NumberAxis fx:id="nutrientAxis" side="LEFT" tickLabelFill="#ff9d00" />
               </yAxis>
             </BarChart>
          </center>
@@ -26,12 +26,19 @@
          <bottom>
             <Pane prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="32.0" layoutY="26.0" prefHeight="26.0" prefWidth="133.0" text="Choose nutrient" />
-                  <ComboBox fx:id="nutrientComboBox" layoutX="177.0" layoutY="20.0" onAction="#updateGraph" prefWidth="150.0" />
-                  <Button layoutX="476.0" layoutY="20.0" mnemonicParsing="false" onAction="#viewTableButton" text="View Table" />
+                  <Label id="nutrientLabel" alignment="CENTER" layoutX="14.0" layoutY="-6.0" prefHeight="86.0" prefWidth="167.0" text="Choose nutrient:" />
+                  <ComboBox fx:id="nutrientComboBox" layoutX="198.0" layoutY="20.0" onAction="#updateGraph" prefHeight="35.0" prefWidth="150.0" />
+                  <Button layoutX="462.0" layoutY="20.0" mnemonicParsing="false" onAction="#viewTableButton" prefHeight="35.0" prefWidth="124.0" text="Table View" />
+                  <Label id="disclaimer" layoutX="26.0" layoutY="1.0" text="*check full product description on table view" textFill="#ff9800" />
                </children>
             </Pane>
          </bottom>
+         <left>
+            <Pane prefHeight="270.0" prefWidth="15.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="200.0" prefWidth="15.0" BorderPane.alignment="CENTER" />
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

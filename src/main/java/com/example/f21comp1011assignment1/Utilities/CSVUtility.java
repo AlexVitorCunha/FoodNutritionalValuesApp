@@ -11,7 +11,7 @@ public class CSVUtility {
         try(
                 FileReader fr = new FileReader(fileToRead);
                 BufferedReader br = new BufferedReader(fr);
-                Formatter formatter = new Formatter(new File(sqlFileName));
+                Formatter formatter = new Formatter(sqlFileName);
                 )
         {
             String line = br.readLine(); //skips the line of fields names

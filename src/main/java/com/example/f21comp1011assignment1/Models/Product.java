@@ -3,16 +3,13 @@ package com.example.f21comp1011assignment1.Models;
 
 public class Product {
     private String name;
+    private int id;
     private double protein, carbs, fat, ash, energy;
 
-    public Product() {
-        setProtein(0);
-        setEnergy(0);
-        setFat(0);
-        setAsh(0);
-    }
 
-    public Product(String name, double protein, double carbs, double fat, double ash, double energy) {
+
+    public Product(int id, String name, double protein, double carbs, double fat, double ash, double energy) {
+        setId(id);
         setName(name);
         setProtein(protein);
         setCarbs(carbs);
@@ -21,12 +18,25 @@ public class Product {
         setEnergy(energy);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.length() > 3){
+            this.name = name;
+        }
+        else{
+            throw new IllegalArgumentException("Minimum Length required");
+        }
     }
 
     public double getProtein() {
