@@ -1,6 +1,6 @@
 # Food Nutritional Values Application 
 
-
+![Screenshot of my project](https://github.com/AlexVitorCunha/FoodNutritionalValuesApp/blob/master/screenshots/nutrients_screenshot.png?raw=true)
 
 ## Purpose
 
